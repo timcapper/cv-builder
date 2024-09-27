@@ -1,11 +1,11 @@
 <script>
-    import { Input, Modal } from '$lib/components'
+    import { Input, Modal } from '$lib/components';
 
-    export let form
+    export let form;
 
     let emailModalOpen;
 
-    $: emailModalOpen = false
+    $: emailModalOpen = false;
 </script>
 
 
