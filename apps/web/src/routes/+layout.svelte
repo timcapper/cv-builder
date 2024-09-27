@@ -32,7 +32,7 @@
 							<a href="/my/projects" class="justify-between">My Projects</a>
 						</li>
 						<li>
-							<a href="/my/settings/">Settigns</a>
+							<a href="/my/settings/">Settings</a>
 						</li>
 						<li>
 							<form action="/logout" method="POST">
