@@ -1,5 +1,6 @@
 <script>
     import { Modal } from '$lib/components'
+    import { enhance } from '$app/forms';
     
     export let education
 
@@ -25,7 +26,7 @@
             </div>
             <div slot="actions" class="flex w-full items-center justify-center space-x-2">
                 <label for={education.id} class="btn btn-outline">Cancel</label>
-                <form action="?/deleteEducation" method="POST">
+                <form action="?/deleteEducation" method="POST" use:enhance>
                     <input type="hidden" name="id" value={education.id} />
                     <button type="submit" class="btn btn-error">Confirm</button>
                 </form>

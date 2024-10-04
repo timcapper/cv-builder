@@ -35,6 +35,6 @@ export const actions = {
             throw error(err.status, err.message);
         }
 
-        throw redirect(303, `/education/${params.educationId}`);
+        throw redirect(303, `/my/education`);
     }
 };
