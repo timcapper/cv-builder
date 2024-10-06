@@ -31,7 +31,6 @@
     }
 </script>
 
-
 <div class="flex flex-col w-full h-full space-y-12">
     <div class="w-full">
         <h3 class="text-2xl font-medium">Change Email</h3>
@@ -47,6 +46,7 @@
                     required={true}
                     value={form?.data?.email}
                     disabled={loading}
+                    errors={form?.errors?.email}
                 />
                 <button type="submit" class="btn btn-primary w-full" disabled={loading}>Change my email</button>
             </form>

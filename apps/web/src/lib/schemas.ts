@@ -74,4 +74,10 @@ export const addEducationSchema = z.object({
         required_error: 'End date is require',
         invalid_type_error: 'End date must be a date'
     })
-})
+});
+
+export const updateEmailSchema = z.object({
+    email: z
+        .string({ required_error: 'Email is required' })
+        .email({ message: 'Email must be a valid email.' })
+});
