@@ -1,5 +1,7 @@
 import { serializeNonPOJOs } from '$lib/utils.js';
-import { error, redirect } from '@sveltejs/kit';
+import { error, fail, redirect } from '@sveltejs/kit';
+import { addEducationSchema } from "$lib/schemas.js";
+import { validateData } from '$lib/utils';
 
 export const load = async ({ locals, params }) => {
     if (!locals.pb.authStore.isValid) {
@@ -24,7 +26,14 @@ export const load = async ({ locals, params }) => {
 
 export const actions = {
     updateEducation: async ({ request, locals, params }) => {
-        const formData = await request.formData();
+        const { formData, errors } = await validateData(await request.formData(), addEducationSchema);
+
+        if (errors) {
+            return fail(400, {
+                data: formData,
+                errors: errors.fieldErrors
+            });
+        }
 
         formData.append('userId', locals.user.id);
 

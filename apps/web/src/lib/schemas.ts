@@ -50,3 +50,28 @@ export const registerUserSchema = z.object({
         });
     }
 });
+
+export const addEducationSchema = z.object({
+    institution: z
+        .string({ required_error: 'Institution is required' })
+        .regex(/^[a-zA-Z\s]*$/, { message: 'First name can only contain letters and spaces.' })
+        .min(2, { message: 'First name must be at least 2 characters.' })
+        .max(64, { message: 'First name cannot be more than 64 characters.' })
+        .trim(),
+    subject: z
+        .string({ required_error: 'Institution is required' })
+        .regex(/^[a-zA-Z\s]*$/, { message: 'First name can only contain letters and spaces.' })
+        .min(2, { message: 'First name must be at least 2 characters.' })
+        .max(64, { message: 'First name cannot be more than 64 characters.' })
+        .trim(),
+    qualification: z
+        .string({ required_error: 'Institution is required' })
+        .regex(/^[a-zA-Z0-9\s]*$/, { message: 'First name can only contain letters and spaces.' })
+        .min(2, { message: 'First name must be at least 2 characters.' })
+        .max(64, { message: 'First name cannot be more than 64 characters.' })
+        .trim(),
+    endDate: z.date({
+        required_error: 'End date is require',
+        invalid_type_error: 'End date must be a date'
+    })
+})

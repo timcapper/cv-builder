@@ -1,4 +1,6 @@
-import { error, redirect } from "@sveltejs/kit"
+import { error, fail, redirect } from "@sveltejs/kit";
+import { addEducationSchema } from "$lib/schemas.js";
+import { validateData } from '$lib/utils';
 
 
 export const load = ({ locals }) => {
@@ -9,7 +11,14 @@ export const load = ({ locals }) => {
 
 export const actions = {
     create: async ({ request, locals }) => {
-        const formData = await request.formData();
+        const { formData, errors } = await validateData(await request.formData(), addEducationSchema);
+
+        if (errors) {
+            return fail(400, {
+                data: formData,
+                errors: errors.fieldErrors
+            });
+        }
 
         formData.append('userId', locals.user.id);
 
@@ -22,4 +31,4 @@ export const actions = {
 
         throw redirect(303, '/my/education');
     }
-}
+};

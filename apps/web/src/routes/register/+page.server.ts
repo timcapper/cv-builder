@@ -1,6 +1,6 @@
-import { registerUserSchema } from '$lib/schemas'
-import { validateData } from '$lib/utils'
-import { error, fail, redirect } from '@sveltejs/kit'
+import { registerUserSchema } from '$lib/schemas';
+import { validateData } from '$lib/utils';
+import { error, fail, redirect } from '@sveltejs/kit';
 
 export const actions = {
     register: async ({ locals, request }) => {
