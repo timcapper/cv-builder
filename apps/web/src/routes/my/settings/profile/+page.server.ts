@@ -1,5 +1,10 @@
 import { error } from '@sveltejs/kit';
 
+export const load = ({ locals }) => {
+    if (!locals.pb.authStore.isValid) {
+        throw redirect(303, '/login')
+    }
+}
 
 export const actions = {
     updateProfile: async ({ request, locals }) => {

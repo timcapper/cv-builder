@@ -81,3 +81,33 @@ export const updateEmailSchema = z.object({
         .string({ required_error: 'Email is required' })
         .email({ message: 'Email must be a valid email.' })
 });
+
+export const updatePasswordSchema = z.object({
+    oldPassword: z.string({ required_error: 'Enter your current password' }),
+    password: z
+        .string({ required_error: 'Password is required' })
+        .regex(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, {
+            message:
+                'Password must be a minimum of 8 characters and contain at least one letter, one number and one special character (@$!%*#?&).'
+        }),
+    passwordConfirm: z
+        .string({ required_error: 'Password is required' })
+        .regex(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, {
+            message:
+                'Password must be a minimum of 8 characters and contain at least one letter, one number and one special character (@$!%*#?&).'
+        })
+})
+.superRefine(({ password, passwordConfirm }, ctx) => {
+    if (passwordConfirm != password) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: 'Your passwords do not match',
+            path: ['password']
+        });
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: 'Your passwords do not match',
+            path: ['passwordConfirm']
+        });
+    }
+});
