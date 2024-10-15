@@ -30,6 +30,11 @@
         <h3 class="text-2xl">Update profile</h3>
         <Input id="firstName" label="First name" value={data?.user?.firstName} disabled={loading} />
         <Input id="lastName" label="Last name" value={data?.user?.lastName} disabled={loading} />
+        <Input id="location" label="Location" value={data?.user?.location} disabled={loading} />
+        <Input id="linkedIn" label="LinkedIn profile" value={data?.user?.linkedIn} disabled={loading} />
+        <Input id="github" label="Github profile" value={data?.user?.github} disabled={loading} />
+        <Input id="gitlab" label="Gitlab profile" value={data?.user?.gitlab} disabled={loading} />
+        <Input id="googleScholar" label="Google scholar" value={data?.user?.googleScholar} disabled={loading} />
         <div class="w-full max-w-lg pt-3">
             <button class="btn btn-primary w-full max-w-lg" type="submit">
                 Update profile
