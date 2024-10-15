@@ -6,10 +6,6 @@
             href: '/my/settings/profile'
         },
         {
-            title: 'Account',
-            href: '/my/settings/account'
-        },
-        {
             title: 'Security',
             href: '/my/settings/security'
         },
