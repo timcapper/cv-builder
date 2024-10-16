@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { enhance, applyAction } from '$app/forms';
     import { invalidateAll } from '$app/navigation';
     import { Input, Modal } from '$lib/components';
@@ -6,45 +6,42 @@
     export let form;
     export let data;
 
-    let emailModalOpen;
-    let deleteAccountModalOpen;
-    let loading;
-
-    $: emailModalOpen = false;
-    $: deleteAccountModalOpen = false;
-    $: loading = false;
+    let emailModalOpen = false;
+    let deleteAccountModalOpen = false;
+    let loading = false;
 
     const submitUpdateEmail = () => {
-        loading = true
-        emailModalOpen = true
+        loading = true;
+        emailModalOpen = true;
         return async ({ result }) => {
             switch (result.type) {
                 case 'success':
-                    await invalidateAll()
-                    emailModalOpen = false
-                    break
+                    await invalidateAll();
+                    emailModalOpen = false;
+                    break;
                 case 'error':
-                    break
+                    console.log(result);
+                    break;
                 default:
-                    await applyAction(result)
+                    await applyAction(result);
             }
-            loading = false
-        }
-    }
+            loading = false;
+        };
+    };
 
     const submitDeleteAccount = () => {
-        loading = true
-        deleteAccountModalOpen = true
+        loading = true;
+        deleteAccountModalOpen = true;
         return async ({ result }) => {
             switch (result.type) {
                 case 'success':
                     await invalidateAll();
                     deleteAccountModalOpen = false;
                     loading = false;
-                    break
+                    break;
                 case 'error':
                     console.log(result);
-                    break
+                    break;
                 default:
                     await applyAction(result);
                     loading = false;
