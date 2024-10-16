@@ -1,7 +1,6 @@
 import { error } from '@sveltejs/kit';
 
 export const load = ({ locals }) => {
-    console.log('Loading /my/settings/profile');
     if (!locals.pb.authStore.isValid) {
         throw redirect(303, '/login')
     }

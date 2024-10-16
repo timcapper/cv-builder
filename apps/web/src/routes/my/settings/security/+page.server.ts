@@ -3,7 +3,6 @@ import { validateData } from "$lib/utils"
 import { error, fail, redirect } from "@sveltejs/kit"
 
 export const load = ({ locals }) => {
-    console.log('Loading /my/settings/security');
     if (!locals.pb.authStore.isValid) {
         throw redirect(303, '/login')
     }

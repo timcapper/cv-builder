@@ -22,7 +22,6 @@
 
     afterNavigate(() => {
         currentPath = $page.url.pathname;
-        console.log('Navigated to:', currentPath);
     });
 </script>
 
