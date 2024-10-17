@@ -4,6 +4,7 @@
 
     import MynauiUserSquare from '~icons/mynaui/user-square';
     import MynauiLockSquare from '~icons/mynaui/lock-square';
+    import MynauiCreditCard from '~icons/mynaui/credit-card';
 
     const navigation = [
         {
@@ -16,6 +17,11 @@
             icon: MynauiLockSquare,
             href: '/my/settings/security'
         },
+        {
+            title: 'Credits',
+            icon: MynauiCreditCard,
+            href: '/my/settings/credits'
+        }
     ]
 
     let currentPath;
