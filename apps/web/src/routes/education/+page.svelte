@@ -4,7 +4,10 @@
     export let data;
 </script>
 
-<h2 class="test-3xl font-body">My education</h2>
+<div class="w-full h-full px-2">
+    <h3 class="text-2xl font-medium">Education</h3>
+    <div class="divider" />
+</div>
 <div class="w-full mt-4 flex flex-col items-center">
     {#if data.education.length === 0}
         <p class="text-center text-3xl">You haven't recorded any education yet.</p>
