@@ -1,6 +1,7 @@
 <script>
 	import MynauiCogOne from '~icons/mynaui/cog-one';
 	import MynauiLogoutSolid from '~icons/mynaui/logout-solid';
+	import MynauiAcademicHat from '~icons/mynaui/academic-hat';
 
 	import '../app.css';
 
@@ -33,7 +34,8 @@
 			<a href="/" class="btn btn-ghost normal-case text-xl">CV</a>
 		</div>
 		<div class="flex flex-col space-y-4">
-			<a href="/my/settings/" class="btn btn-ghost normal-case text-xl"><MynauiCogOne /></a>
+			<a href="/education/" class="btn btn-ghost normal-case text-xl"><MynauiAcademicHat /></a>
+			<a href="/settings/" class="btn btn-ghost normal-case text-xl"><MynauiCogOne /></a>
 			<form action="/logout" method="POST">
 				<button class="btn btn-ghost normal-case text-xl" type="submit"><MynauiLogoutSolid /></button>
 			</form>

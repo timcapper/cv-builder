@@ -10,17 +10,17 @@
         {
             title: 'Profile',
             icon: MynauiUserSquare,
-            href: '/my/settings/profile'
+            href: '/settings/profile'
         },
         {
             title: 'Security',
             icon: MynauiLockSquare,
-            href: '/my/settings/security'
+            href: '/settings/security'
         },
         {
             title: 'Credits',
             icon: MynauiCreditCard,
-            href: '/my/settings/credits'
+            href: '/settings/credits'
         }
     ]
 
