@@ -29,16 +29,20 @@
 </div>
 {:else}
 <div class="min-h-screen flex">
-	<nav class="navbar bg-base-100 border-r w-24 h-full flex flex-col p-4">
+	<nav class="bg-base-100 border-r w-24 h-screen flex flex-col p-4">
 		<div class="mb-6">
 			<a href="/" class="btn btn-ghost normal-case text-xl">CV</a>
 		</div>
-		<div class="flex flex-col space-y-4">
-			<a href="/education/" class="btn btn-ghost normal-case text-xl"><MynauiAcademicHat /></a>
-			<a href="/settings/" class="btn btn-ghost normal-case text-xl"><MynauiCogOne /></a>
-			<form action="/logout" method="POST">
-				<button class="btn btn-ghost normal-case text-xl" type="submit"><MynauiLogoutSolid /></button>
-			</form>
+		<div class="flex flex-col h-full">
+			<div class="flex-grow">
+				<a href="/education/" class="btn btn-ghost normal-case text-xl"><MynauiAcademicHat /></a>
+			</div>
+			<div class="mt-auto space-y-4">
+				<a href="/settings/" class="btn btn-ghost normal-case text-xl"><MynauiCogOne /></a>
+				<form action="/logout" method="POST">
+					<button class="btn btn-ghost normal-case text-xl" type="submit"><MynauiLogoutSolid /></button>
+				</form>
+			</div>
 		</div>
 	</nav>
 	<div class="flex-grow py-4">
