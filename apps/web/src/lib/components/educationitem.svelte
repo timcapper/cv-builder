@@ -1,4 +1,4 @@
-<script>
+<script lang=ts>
     import { Modal } from '$lib/components'
     import { enhance } from '$app/forms';
     
@@ -7,12 +7,18 @@
     let modalOpen
 
     $: modalOpen = false
+
+    function formatDate(dateString: string): string {
+        const date = new Date(dateString)
+        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+    }
 </script>
 
 <div class="w-full h-28 flex items-center justify-between">
     <div class="flex flex-col w-full ml-4 h-full justify-center">
         <a href="/education/{education.id}" class="font-semibold text-lg">{education.subject}</a>
         <p>{education.institution}</p>
+        <p>{formatDate(education.startDate)} - {formatDate(education.endDate)}</p>
     </div>
     <div class="flex items-center justify-end w-full">
         <a href="/education/{education.id}/edit" class="btn btn-outline">Edit</a>
