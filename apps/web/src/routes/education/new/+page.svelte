@@ -45,8 +45,9 @@
             value={form?.data?.grade}
             errors={form?.errors?.grade}
         />
-        <div class="w-full max-w-lg pt-2">
-            <button type="submit" class="btn btn-primary w-full">Add education</button>
+        <div class="w-full max-w-lg pt-2 flex space-x-2">
+            <a href="/education" class="btn btn-outline flex-1">Cancel</a>
+            <button type="submit" class="btn btn-primary flex-1">Add education</button>
         </div>
     </form>
 </div>
