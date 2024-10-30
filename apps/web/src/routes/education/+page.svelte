@@ -5,7 +5,11 @@
 </script>
 
 <div class="w-full h-full px-2">
-    <h3 class="text-2xl font-medium">Education</h3>
+    <div class="flex w-full items-center">
+        <h3 class="text-2xl font-medium text-left my-auto">Education</h3>
+        <div class="flex-grow"></div>
+        <a href="/education/new" class="btn btn-primary">Add education</a>
+    </div>
     <div class="divider" />
 </div>
 <div class="w-full mt-4 flex flex-col items-center">
