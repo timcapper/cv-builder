@@ -30,12 +30,14 @@
         <Input
             id="startDate"
             label="Start date"
+            type="date"
             value={form?.data?.startDate}
             errors={form?.errors?.startDate}
         />
         <Input
             id="endDate"
-            label="End date"
+            label="End/award date"
+            type="date"
             value={form?.data?.endDate}
             errors={form?.errors?.endDate}
         />

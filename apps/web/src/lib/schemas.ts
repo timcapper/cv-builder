@@ -60,7 +60,17 @@ export const newEducationSchema = z.object({
         .trim(),
     qualification: z
         .string({ required_error: 'Institution is required' })
-        .trim()
+        .trim(),
+    startDate: z
+        .string()
+        .transform((str) => new Date(str))
+        .optional(),
+    endDate: z
+        .string()
+        .transform((str) => new Date(str)),
+    grade: z
+        .string()
+        .optional()
 });
 
 export const updateEmailSchema = z.object({
