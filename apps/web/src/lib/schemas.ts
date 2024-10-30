@@ -66,7 +66,7 @@ export const newEducationSchema = z.object({
         .transform((str) => new Date(str))
         .optional(),
     endDate: z
-        .string()
+        .string({ required_error: 'End/award date is required' })
         .transform((str) => new Date(str)),
     grade: z
         .string()
