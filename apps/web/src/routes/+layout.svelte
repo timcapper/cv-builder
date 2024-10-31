@@ -3,6 +3,10 @@
 	import MynauiCogOne from '~icons/mynaui/cog-one';
 	import MynauiLogoutSolid from '~icons/mynaui/logout-solid';
 	import MynauiAcademicHat from '~icons/mynaui/academic-hat';
+	import MynauiRocket from '~icons/mynaui/rocket';
+	import MynauiBriefcase from '~icons/mynaui/briefcase';
+	import MynauiFileText from '~icons/mynaui/file-text';
+	import MynauiChat from '~icons/mynaui/chat';
 
 	import '../app.css';
 
@@ -35,26 +39,64 @@
 			<a href="/" class="btn btn-ghost normal-case text-xl">CV</a>
 		</div>
 		<div class="flex flex-col h-full">
-			<div class="flex-grow">
-				<a 
-					href="/education/" 
-					class="btn btn-ghost normal-case text-xl rounded-xl {$page.url.pathname.startsWith('/education') ? 'border-2 border-black' : ''}"
-				>
-					<MynauiAcademicHat />
-				</a>
+			<div class="space-y-4">
+				<div class="tooltip tooltip-right" data-tip="Job applications">
+					<a 
+						href="/job-applications/" 
+						class="btn btn-ghost normal-case text-xl rounded-xl {$page.url.pathname.startsWith('/job-applications') ? 'border-2 border-black' : ''}"
+					>
+						<MynauiRocket />
+					</a>
+				</div>
+				<div class="tooltip tooltip-right" data-tip="Experience">
+					<a 
+						href="/experience/" 
+						class="btn btn-ghost normal-case text-xl rounded-xl {$page.url.pathname.startsWith('/experience') ? 'border-2 border-black' : ''}"
+					>
+						<MynauiBriefcase />
+					</a>
+				</div>
+				<div class="tooltip tooltip-right" data-tip="Education">
+					<a 
+						href="/education/" 
+						class="btn btn-ghost normal-case text-xl rounded-xl {$page.url.pathname.startsWith('/education') ? 'border-2 border-black' : ''}"
+					>
+						<MynauiAcademicHat />
+					</a>
+				</div>
+				<div class="tooltip tooltip-right" data-tip="Certificates & licenses">
+					<a 
+						href="/certificates/" 
+						class="btn btn-ghost normal-case text-xl rounded-xl {$page.url.pathname.startsWith('/certificates') ? 'border-2 border-black' : ''}"
+					>
+						<MynauiFileText />
+					</a>
+				</div>
+				<div class="tooltip tooltip-right" data-tip="Languages">
+					<a 
+						href="/languages/" 
+						class="btn btn-ghost normal-case text-xl rounded-xl {$page.url.pathname.startsWith('/languages') ? 'border-2 border-black' : ''}"
+					>
+						<MynauiChat />
+					</a>
+				</div>
 			</div>
 			<div class="mt-auto space-y-4">
-				<a 
-					href="/settings/" 
-					class="btn btn-ghost normal-case text-xl rounded-xl {$page.url.pathname.startsWith('/settings') ? 'border-2 border-black' : ''}"
-				>
-					<MynauiCogOne />
-				</a>
-				<form action="/logout" method="POST">
-					<button class="btn btn-ghost normal-case text-xl rounded-xl" type="submit">
-						<MynauiLogoutSolid />
-					</button>
-				</form>
+				<div class="tooltip tooltip-right" data-tip="Settings">
+					<a 
+						href="/settings/" 
+						class="btn btn-ghost normal-case text-xl rounded-xl {$page.url.pathname.startsWith('/settings') ? 'border-2 border-black' : ''}"
+					>
+						<MynauiCogOne />
+					</a>
+				</div>
+				<div class="tooltip tooltip-right" data-tip="Logout">
+					<form action="/logout" method="POST">
+						<button class="btn btn-ghost normal-case text-xl rounded-xl" type="submit">
+							<MynauiLogoutSolid />
+						</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</nav>
