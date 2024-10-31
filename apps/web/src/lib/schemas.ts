@@ -71,6 +71,15 @@ export const newEducationSchema = z.object({
     grade: z
         .string()
         .optional()
+})
+.superRefine(({ startDate, endDate }, ctx) => {
+    if (startDate && startDate > endDate) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: 'Start date must be before end date',
+            path: ['startDate']
+        });
+    }
 });
 
 export const updateEmailSchema = z.object({
