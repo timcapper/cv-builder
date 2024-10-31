@@ -1,4 +1,5 @@
 <script>
+	import { page } from '$app/stores';
 	import MynauiCogOne from '~icons/mynaui/cog-one';
 	import MynauiLogoutSolid from '~icons/mynaui/logout-solid';
 	import MynauiAcademicHat from '~icons/mynaui/academic-hat';
@@ -35,10 +36,20 @@
 		</div>
 		<div class="flex flex-col h-full">
 			<div class="flex-grow">
-				<a href="/education/" class="btn btn-ghost normal-case text-xl"><MynauiAcademicHat /></a>
+				<a 
+					href="/education/" 
+					class="btn btn-ghost normal-case text-xl rounded-xl {$page.url.pathname.startsWith('/education') ? 'border-2 border-black' : ''}"
+				>
+					<MynauiAcademicHat />
+				</a>
 			</div>
 			<div class="mt-auto space-y-4">
-				<a href="/settings/" class="btn btn-ghost normal-case text-xl"><MynauiCogOne /></a>
+				<a 
+					href="/settings/" 
+					class="btn btn-ghost normal-case text-xl rounded-xl {$page.url.pathname.startsWith('/settings') ? 'border-2 border-black' : ''}"
+				>
+					<MynauiCogOne />
+				</a>
 				<form action="/logout" method="POST">
 					<button class="btn btn-ghost normal-case text-xl" type="submit"><MynauiLogoutSolid /></button>
 				</form>
