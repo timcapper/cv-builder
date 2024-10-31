@@ -36,12 +36,12 @@
     <div class="divider" />
 </div>
 <div class="flex w-full h-full space-x-4">
-    <ul class="menu bg-base-100 w-56 p-2 rounded-box">
+    <ul class="menu bg-base-100 w-56 p-2 rounded-box space-y-3">
         {#each navigation as navItem}
             <li class="flex items-left">
                 <a 
                     href={navItem.href} 
-                    class="font-medium {currentPath === navItem.href ? 'active' : ''} flex items-center space-x-2"
+                    class="font-medium rounded-lg {currentPath === navItem.href ? 'ring-2 ring-primary bg-transparent' : ''} hover:bg-base-200 flex items-center space-x-2"
                 >
                     <svelte:component this={navItem.icon} class="w-5 h-5" />
                     <span>{navItem.title}</span>

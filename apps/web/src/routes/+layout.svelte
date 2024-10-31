@@ -51,7 +51,9 @@
 					<MynauiCogOne />
 				</a>
 				<form action="/logout" method="POST">
-					<button class="btn btn-ghost normal-case text-xl" type="submit"><MynauiLogoutSolid /></button>
+					<button class="btn btn-ghost normal-case text-xl rounded-xl" type="submit">
+						<MynauiLogoutSolid />
+					</button>
 				</form>
 			</div>
 		</div>

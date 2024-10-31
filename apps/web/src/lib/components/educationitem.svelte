@@ -16,9 +16,9 @@
 
 <div class="w-full h-28 flex items-center justify-between">
     <div class="flex flex-col w-full ml-4 h-full justify-center">
-        <a href="/education/{education.id}" class="font-semibold text-lg">{education.subject}</a>
+        <p class="font-semibold text-lg">{education.subject}</p>
         <p>{education.institution}</p>
-        <p>{formatDate(education.startDate)} - {formatDate(education.endDate)}</p>
+        <p>{education.startDate ? `${formatDate(education.startDate)} - ${formatDate(education.endDate)}` : formatDate(education.endDate)}</p>
     </div>
     <div class="flex items-center justify-end w-full">
         <a href="/education/{education.id}/edit" class="btn btn-outline">Edit</a>

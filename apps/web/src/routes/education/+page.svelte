@@ -2,6 +2,13 @@
     import { EducationItem } from '$lib/components';
 
     export let data;
+    
+    // Sort education items by endDate in descending order
+    $: sortedEducation = [...data.education].sort((a, b) => {
+        const dateA = new Date(a.endDate);
+        const dateB = new Date(b.endDate);
+        return dateB - dateA;
+    });
 </script>
 
 <div class="w-full h-full px-2">
@@ -17,7 +24,7 @@
         <p class="text-center">You haven't recorded any education yet.</p>
         <a href="/education/new" class="btn btn-primary max-w-md mt-4">Add education</a>
     {:else}
-        {#each data.education as education}
+        {#each sortedEducation as education}
             <EducationItem {education} />
             <div class="divider mt-0 mb-2" />
         {/each}
