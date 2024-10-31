@@ -1,5 +1,6 @@
 <script>
     import { EducationItem } from '$lib/components';
+    import MynauiPlusCircle from '~icons/mynaui/plus-circle';
 
     export let data;
     
@@ -15,7 +16,9 @@
     <div class="flex w-full items-center">
         <h3 class="text-2xl font-medium text-left my-auto">Education</h3>
         <div class="flex-grow"></div>
-        <a href="/education/new" class="btn btn-primary">Add education</a>
+        <div class="tooltip tooltip-bottom" data-tip="Add education">
+            <a href="/education/new" class="btn btn-ghost normal-case text-xl rounded-xl"><MynauiPlusCircle class="w-8 h-8" /></a>
+        </div>
     </div>
     <div class="divider" />
 </div>

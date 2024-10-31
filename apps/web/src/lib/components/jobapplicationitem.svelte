@@ -31,10 +31,10 @@
                 </p>
             </div>
             <div slot="actions" class="flex w-full items-center justify-center space-x-2">
-                <label for={application.id} class="btn btn-outline">Cancel</label>
+                <label for={application.id} class="btn btn-outline rounded-xl">Cancel</label>
                 <form action="?/deleteApplication" method="POST" use:enhance>
                     <input type="hidden" name="id" value={application.id} />
-                    <button type="submit" class="btn btn-error">Confirm</button>
+                    <button type="submit" class="btn btn-error rounded-xl">Confirm</button>
                 </form>
             </div>
         </Modal>
