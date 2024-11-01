@@ -9,7 +9,7 @@ export const load = async ({ locals }) => {
     const getUsersExperience = async (userId) => {
         try {
             const experience = serializeNonPOJOs(
-                await locals.pb.collection('experiences').getFullList(
+                await locals.pb.collection('jobs').getFullList(
                     undefined,
                     {filter: `userId = "${userId}"`}
                 )
@@ -31,7 +31,7 @@ export const actions = {
         const { id } = Object.fromEntries(await request.formData());
 
         try {
-            await locals.pb.collection('experiences').delete(id);
+            await locals.pb.collection('jobs').delete(id);
         } catch (err) {
             console.log('Error: ', err);
             throw error(err.status, err.message);

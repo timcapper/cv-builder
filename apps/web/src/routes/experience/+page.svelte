@@ -1,13 +1,13 @@
 <script>
-    import { ExperienceItem } from '$lib/components';
+    import { JobItem } from '$lib/components';
     import MynauiPlusCircle from '~icons/mynaui/plus-circle';
 
     export let data;
     
-    // Sort experience items by endDate in descending order
+    // Sort experience items by startDate in descending order
     $: sortedExperience = [...data.experience].sort((a, b) => {
-        const dateA = new Date(a.endDate);
-        const dateB = new Date(b.endDate);
+        const dateA = new Date(a.startDate);
+        const dateB = new Date(b.startDate); 
         return dateB - dateA;
     });
 </script>
@@ -28,7 +28,7 @@
         <a href="/experience/new" class="btn btn-primary max-w-md mt-4">Add experience</a>
     {:else}
         {#each sortedExperience as experience}
-            <ExperienceItem {experience} />
+            <JobItem {experience} />
             <div class="divider mt-0 mb-2" />
         {/each}
     {/if}

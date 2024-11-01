@@ -18,9 +18,9 @@
 
 <div class="w-full h-28 flex items-center justify-between">
     <div class="flex flex-col w-full ml-4 h-full justify-center">
-        <p class="font-semibold text-lg">{experience.situation}</p>
-        <p>{experience.task}</p>
-        <p class="text-gray-500">{experience.startDate ? `${formatDate(experience.startDate)} - ${formatDate(experience.endDate)}` : formatDate(experience.endDate)}</p>
+        <p class="font-semibold text-lg">{experience.jobTitle}</p>
+        <p>{experience.company} | {experience.location}</p>
+        <p class="text-gray-500">{experience.endDate ? `${formatDate(experience.startDate)} - ${formatDate(experience.endDate)}` : `${formatDate(experience.startDate)} - Present`}</p>
     </div>
     <div class="flex items-center justify-end w-full">
         <div class="tooltip tooltip-top" data-tip="Edit">

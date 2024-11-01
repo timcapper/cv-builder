@@ -117,3 +117,32 @@ export const updatePasswordSchema = z.object({
         });
     }
 });
+
+export const newExperienceSchema = z.object({
+    company: z
+        .string({ required_error: 'Company is required' })
+        .trim(),
+    jobTitle: z
+        .string({ required_error: 'Job title is required' })
+        .trim(),
+    location: z
+        .string()
+        .trim()
+        .optional(),
+    startDate: z
+        .string({ required_error: 'End date is required' })
+        .transform((str) => new Date(str)),
+    endDate: z
+        .string()
+        .transform((str) => new Date(str))
+        .optional()
+})
+.superRefine(({ startDate, endDate }, ctx) => {
+    if (endDate && startDate > endDate) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: 'End date must be after start date',
+            path: ['endDate']
+        });
+    }
+});
