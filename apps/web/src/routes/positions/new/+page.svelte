@@ -10,7 +10,7 @@
     <h2 class="mt-2 text-center text-3xl font-bold tracking-tight text-base-content">
         Add new position
     </h2>
-    <form action="?/newExperience" method="POST" class="flex flex-col items-center space-y-2 w-full pt-4">
+    <form action="?/newPosition" method="POST" class="flex flex-col items-center space-y-2 w-full pt-4">
         <Input
             id="company"
             label="Company"

@@ -48,10 +48,11 @@
 						<MynauiRocket />
 					</a>
 				</div>
-				<div class="tooltip tooltip-right" data-tip="Experience">
+				<div class="divider my-4" />
+				<div class="tooltip tooltip-right" data-tip="Positions">
 					<a 
-						href="/experience/" 
-						class="btn btn-ghost normal-case text-xl rounded-xl {$page.url.pathname.startsWith('/experience') ? 'border-2 border-black' : ''}"
+						href="/positions/" 
+						class="btn btn-ghost normal-case text-xl rounded-xl {$page.url.pathname.startsWith('/positions') ? 'border-2 border-black' : ''}"
 					>
 						<MynauiBriefcase />
 					</a>

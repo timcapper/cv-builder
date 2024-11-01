@@ -1,4 +1,4 @@
-import { newExperienceSchema } from '$lib/schemas';
+import { newPositionSchema } from '$lib/schemas';
 import { validateData } from '$lib/utils';
 import { error, fail, redirect } from '@sveltejs/kit';
 
@@ -9,8 +9,8 @@ export const load = ({ locals }) => {
 };
 
 export const actions = {
-    newExperience: async ({ locals, request }) => {
-        const { formData, errors } = await validateData(await request.formData(), newExperienceSchema);
+    newPosition: async ({ locals, request }) => {
+        const { formData, errors } = await validateData(await request.formData(), newPositionSchema);
 
         if (errors) {
             return fail(400, {
@@ -26,6 +26,6 @@ export const actions = {
             throw error(500, 'Something went wrong!');
         }
 
-        throw redirect(303, '/experience');
+        throw redirect(303, '/positions');
     }
 };

@@ -6,15 +6,15 @@ export const load = async ({ locals }) => {
         throw redirect(303, '/login');
     }
 
-    const getUsersExperience = async (userId) => {
+    const getUsersPositions = async (userId) => {
         try {
-            const experience = serializeNonPOJOs(
+            const positions = serializeNonPOJOs(
                 await locals.pb.collection('jobs').getFullList(
                     undefined,
                     {filter: `userId = "${userId}"`}
                 )
             );
-            return experience;
+            return positions;
         } catch (err) {
             console.log('Error: ', err);
             throw error(err.status, err.message);
@@ -22,12 +22,12 @@ export const load = async ({ locals }) => {
     };
 
     return {
-        experience: await getUsersExperience(locals.user.id)
+        positions: await getUsersPositions(locals.user.id)
     };
 };
 
 export const actions = {
-    deleteExperience: async ({ request, locals }) => {
+    deletePosition: async ({ request, locals }) => {
         const { id } = Object.fromEntries(await request.formData());
 
         try {

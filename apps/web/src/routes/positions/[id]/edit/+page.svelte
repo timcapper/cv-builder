@@ -4,7 +4,7 @@
     export let data;
     export let form;
 
-    let stillInRole = !data.experience.endDate;
+    let stillInRole = !data.position.endDate;
 
     // Format dates to YYYY-MM-DD
     const formatDate = (dateString) => {
@@ -17,24 +17,24 @@
     <h2 class="mt-2 text-center text-3xl font-bold tracking-tight text-base-content">
         Edit position
     </h2>
-    <form action="?/updateExperience" method="POST" class="flex flex-col items-center space-y-2 w-full pt-4">
+    <form action="?/updatePosition" method="POST" class="flex flex-col items-center space-y-2 w-full pt-4">
         <Input
             id="company"
             label="Company"
-            value={form?.data?.company ?? data.experience.company}
+            value={form?.data?.company ?? data.position.company}
             errors={form?.errors?.company}
         />
         <Input
             id="jobTitle"
             label="Job title"
-            value={form?.data?.jobTitle ?? data.experience.jobTitle}
+            value={form?.data?.jobTitle ?? data.position.jobTitle}
             errors={form?.errors?.jobTitle}
         />
         <Input
             id="startDate"
             label="Start date"
             type="date"
-            value={form?.data?.startDate ?? formatDate(data.experience.startDate)}
+            value={form?.data?.startDate ?? formatDate(data.position.startDate)}
             errors={form?.errors?.startDate}
         />
         <div class="form-control w-full max-w-lg">
@@ -47,14 +47,14 @@
             id="endDate"
             label="End date"
             type="date"
-            value={form?.data?.endDate ?? formatDate(data.experience.endDate)}
+            value={form?.data?.endDate ?? formatDate(data.position.endDate)}
             errors={form?.errors?.endDate}
             disabled={stillInRole}
         />
         <Input
             id="location"
             label="Location"
-            value={form?.data?.location ?? data.experience.location}
+            value={form?.data?.location ?? data.position.location}
             errors={form?.errors?.location}
         />
         <div class="w-full max-w-lg pt-2 flex space-x-2">

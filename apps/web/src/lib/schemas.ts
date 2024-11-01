@@ -118,7 +118,7 @@ export const updatePasswordSchema = z.object({
     }
 });
 
-export const newExperienceSchema = z.object({
+export const newPositionSchema = z.object({
     company: z
         .string({ required_error: 'Company is required' })
         .trim(),
