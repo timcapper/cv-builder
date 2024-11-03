@@ -146,3 +146,38 @@ export const newPositionSchema = z.object({
         });
     }
 });
+
+// ... existing schemas ...
+
+export const newCertificateSchema = z.object({
+    name: z
+        .string({ required_error: 'Certificate name is required' })
+        .trim(),
+    institution: z
+        .string()
+        .trim()
+        .optional(),
+    issueDate: z
+        .string()
+        .transform((str) => new Date(str))
+        .optional(),
+    expiryDate: z
+        .string()
+        .transform((str) => new Date(str))
+        .optional(),
+    credentialUrl: z
+        .string()
+        .trim()
+        .url({ message: 'Must be a valid URL' })
+        .optional()
+        .or(z.literal(''))
+})
+.superRefine(({ issueDate, expiryDate }, ctx) => {
+    if (issueDate && expiryDate && issueDate > expiryDate) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: 'Issue date must be before expiry date',
+            path: ['issueDate']
+        });
+    }
+});
