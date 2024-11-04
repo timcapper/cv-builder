@@ -6,15 +6,18 @@ export const load = async ({ locals }) => {
         throw redirect(303, '/login');
     }
 
-    const getUsersJobApplications = async (userId) => {
+    const getUsersLanguages = async (userId) => {
         try {
-            const jobApplications = serializeNonPOJOs(
-                await locals.pb.collection('jobApplications').getFullList(
+            const languages = serializeNonPOJOs(
+                await locals.pb.collection('languages').getFullList(
                     undefined,
-                    {filter: `userId = "${userId}"`}
+                    {
+                        filter: `userId = "${userId}"`,
+                        expand: 'certificates' // This will expand the certificates relation
+                    }
                 )
             );
-            return jobApplications;
+            return languages;
         } catch (err) {
             console.log('Error: ', err);
             throw error(err.status, err.message);
@@ -22,16 +25,16 @@ export const load = async ({ locals }) => {
     };
 
     return {
-        jobApplications: await getUsersJobApplications(locals.user.id)
+        languages: await getUsersLanguages(locals.user.id)
     };
 };
 
 export const actions = {
-    deleteApplication: async ({ request, locals }) => {
+    deleteLanguage: async ({ request, locals }) => {
         const { id } = Object.fromEntries(await request.formData());
 
         try {
-            await locals.pb.collection('jobApplications').delete(id);
+            await locals.pb.collection('languages').delete(id);
         } catch (err) {
             console.log('Error: ', err);
             throw error(err.status, err.message);

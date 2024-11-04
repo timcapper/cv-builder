@@ -181,3 +181,36 @@ export const newCertificateSchema = z.object({
         });
     }
 });
+
+export const newLanguageSchema = z.object({
+    language: z
+        .string({ required_error: 'Language name is required' })
+        .trim(),
+    level: z
+        .string({ required_error: 'Proficiency level is required' })
+        .trim()
+        .optional()
+        .refine((val) => ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'Native'].includes(val), {
+            message: 'Invalid proficiency level'
+        })
+});
+
+export const uploadJobDescriptionSchema = z.object({
+    jobDescriptionFile: z
+        .instanceof(File)
+        .refine((file) => file.size < 10_000_000, 'File must be less than 10MB')
+        .refine(
+            (file) => ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain'].includes(file.type),
+            'File must be a PDF, DOC, DOCX, or TXT'
+        )
+});
+
+export const submitJobLinkSchema = z.object({
+    jobUrl: z.string().url('Please enter a valid URL')
+});
+
+export const submitManualJobSchema = z.object({
+    companyName: z.string().min(1, 'Company name is required'),
+    jobTitle: z.string().min(1, 'Job title is required'),
+    jobDescription: z.string().min(1, 'Job description is required')
+});
