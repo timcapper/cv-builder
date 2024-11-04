@@ -80,10 +80,10 @@
         class:hidden={activeTab !== 'manual'}
     >
         <Input
-            id="companyName"
+            id="company"
             label="Company name"
-            value={form?.data?.companyName}
-            errors={form?.errors?.companyName}
+            value={form?.data?.company}
+            errors={form?.errors?.company}
         />
         <Input
             id="jobTitle"
