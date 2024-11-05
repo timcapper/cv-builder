@@ -1,15 +1,15 @@
-export async function processWithOpenAI(dbData: any) {
+export async function processWithOpenAI(fileData: File, fetch: typeof globalThis.fetch) {
+    const formData = new FormData();
+    formData.append('file', fileData);
+
     const response = await fetch('/api/openai', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ dbData })
+        body: formData
     });
 
     if (!response.ok) {
         throw new Error('Failed to process data with OpenAI');
     }
 
-    return response.json();
+    return response;
 }
