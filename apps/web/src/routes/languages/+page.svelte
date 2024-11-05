@@ -1,6 +1,6 @@
 <script>
     import { LanguageItem } from '$lib/components';
-    import MynauiPlusCircle from '~icons/mynaui/plus-circle';
+    import MynauiPlusSolid from '~icons/mynaui/plus-solid';
 
     export let data;
     
@@ -15,8 +15,8 @@
         <h3 class="text-2xl font-medium text-left my-auto">Languages</h3>
         <div class="flex-grow"></div>
         <div class="tooltip tooltip-bottom" data-tip="Add language">
-            <a href="/languages/new" class="btn btn-ghost normal-case text-xl rounded-xl">
-                <MynauiPlusCircle class="w-8 h-8" />
+            <a href="/languages/new" class="btn btn-outline normal-case rounded-xl">
+                <MynauiPlusSolid /> Add language
             </a>
         </div>
     </div>
