@@ -24,8 +24,8 @@
 </div>
 <div class="w-full mt-4 flex flex-col items-center">
     {#if data.positions.length === 0}
-        <p class="text-center">You haven't recorded any experience yet.</p>
-        <a href="/experience/new" class="btn btn-primary max-w-md mt-4">Add experience</a>
+        <p class="text-center">You haven't recorded any positions yet.</p>
+        <a href="/experience/new" class="btn btn-primary max-w-md mt-4">Add position</a>
     {:else}
         {#each sortedPositions as position}
             <JobItem {position} />
