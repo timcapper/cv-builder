@@ -19,10 +19,9 @@
 
 <div class="w-full h-28 flex items-center justify-between">
     <div class="flex flex-col w-full ml-4 h-full justify-center">
-        <p class="font-semibold text-lg">{education.subject}</p>
+        <p class="font-semibold text-lg">{education.qualification} in {education.subject}</p>
         <p>{education.institution}</p>
         <p class="text-gray-500">{education.startDate ? `${formatDate(education.startDate)} - ${formatDate(education.endDate)}` : formatDate(education.endDate)}</p>
-        <a href="/experience/new" class="btn btn-outline btn-sm mt-2 mb-4 rounded-xl w-fit"><MynauiUserPlus />Add experience</a>
     </div>
     <div class="flex items-center justify-end w-full">
         <div class="tooltip tooltip-top" data-tip="Edit">
