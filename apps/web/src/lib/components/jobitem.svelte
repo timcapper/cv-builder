@@ -19,7 +19,9 @@
 
 <div class="w-full h-28 flex items-center justify-between">
     <div class="flex flex-col w-full ml-4 h-full justify-center">
-        <p class="font-semibold text-lg">{position.jobTitle}</p>
+        <a href="/positions/{position.id}/experience" class="hover:underline">
+            <p class="font-semibold text-lg">{position.jobTitle}</p>
+        </a>
         <p>{position.company} | {position.location}</p>
         <p class="text-gray-500">{position.endDate ? `${formatDate(position.startDate)} - ${formatDate(position.endDate)}` : `${formatDate(position.startDate)} - Present`}</p>
         <a href="/positions/{position.id}/experience/new" class="btn btn-outline btn-sm mt-2 mb-4 rounded-xl w-fit"><MynauiUserPlus />Add experience</a>
