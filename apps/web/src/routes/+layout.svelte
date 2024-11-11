@@ -34,11 +34,11 @@
 </div>
 {:else}
 <div class="min-h-screen flex">
-	<nav class="bg-base-100 border-r w-24 h-screen flex flex-col p-4">
+	<nav class="bg-base-100 border-r w-24 sticky top-0 flex flex-col p-4 h-screen">
 		<div class="mb-6">
 			<a href="/" class="btn btn-ghost normal-case text-xl">CV</a>
 		</div>
-		<div class="flex flex-col h-full">
+		<div class="flex flex-col flex-1">
 			<div class="space-y-4">
 				<div class="tooltip tooltip-right" data-tip="Job applications">
 					<a 

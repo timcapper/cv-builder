@@ -200,3 +200,27 @@ export const submitManualJobSchema = z.object({
     jobTitle: z.string().min(1, 'Job title is required'),
     jobDescription: z.string().min(1, 'Job description is required')
 });
+
+export const newExperienceSchema = z.object({
+    situation: z.string().min(1, 'Situation is required'),
+    task: z.string().min(1, 'Task is required'),
+    action: z.string().min(1, 'Action is required'),
+    result: z.string().min(1, 'Result is required'),
+    startDate: z
+        .string()
+        .transform((str) => new Date(str))
+        .optional(),
+    endDate: z
+        .string()
+        .transform((str) => new Date(str))
+        .optional()
+})
+.superRefine(({ startDate, endDate }, ctx) => {
+    if (startDate && endDate && startDate > endDate) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: 'Start date must be before emd date',
+            path: ['startDate']
+        });
+    }
+});

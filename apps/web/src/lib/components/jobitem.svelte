@@ -22,7 +22,7 @@
         <p class="font-semibold text-lg">{position.jobTitle}</p>
         <p>{position.company} | {position.location}</p>
         <p class="text-gray-500">{position.endDate ? `${formatDate(position.startDate)} - ${formatDate(position.endDate)}` : `${formatDate(position.startDate)} - Present`}</p>
-        <a href="/experience/new" class="btn btn-outline btn-sm mt-2 mb-4 rounded-xl w-fit"><MynauiUserPlus />Add experience</a>
+        <a href="/positions/{position.id}/experience/new" class="btn btn-outline btn-sm mt-2 mb-4 rounded-xl w-fit"><MynauiUserPlus />Add experience</a>
     </div>
     <div class="flex items-center justify-end w-full">
         <div class="tooltip tooltip-top" data-tip="Edit">
