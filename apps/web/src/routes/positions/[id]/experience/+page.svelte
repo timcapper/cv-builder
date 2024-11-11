@@ -77,7 +77,7 @@
                             {formatDate(experience.startDate)} - {experience.endDate ? formatDate(experience.endDate) : 'Present'}
                         </div>
                     </div>
-                    <div class="flex items-start ml-4">
+                    <div class="flex items-center ml-4">
                         <div class="tooltip tooltip-top" data-tip="Edit">
                             <a href="/positions/{data.position.id}/experience/{experience.id}/edit" class="btn btn-ghost normal-case text-xl rounded-xl">
                                 <MynauiEditOne />
