@@ -1,6 +1,6 @@
 import { error, fail, redirect } from '@sveltejs/kit';
 import { validateData } from '$lib/utils';
-import { uploadJobDescriptionSchema, submitJobLinkSchema, submitManualJobSchema } from '$lib/schemas';
+import { submitManualJobSchema } from '$lib/schemas';
 import { processWithOpenAI } from '$lib/api';
 
 export const load = ({ locals }) => {
@@ -10,7 +10,7 @@ export const load = ({ locals }) => {
 };
 
 export const actions = {
-    submitManualJob: async ({ locals, request }) => {
+    submitManualJob: async ({ locals, request, fetch }) => {
         const { formData, errors } = await validateData(await request.formData(), submitManualJobSchema);
 
         if (errors) {
@@ -21,10 +21,21 @@ export const actions = {
         }
 
         try {
+            // First process with OpenAI
+            const aiResponse = await processWithOpenAI({
+                company: formData.company,
+                jobTitle: formData.jobTitle,
+                jobDescription: formData.jobDescription
+            }, fetch);
+
+            const aiData = await aiResponse.json();
+
+            // Then create the job application with the AI response
             await locals.pb.collection('jobApplications').create({
                 userId: locals.user.id,
                 type: 'manual',
-                ...formData
+                ...formData,
+                rawResponse: aiData.cv // Store the AI-generated CV
             });
         } catch (err) {
             console.log('Error: ', err);
