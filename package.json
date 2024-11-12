@@ -3,5 +3,9 @@
     "@iconify/json": "^2.2.260",
     "unplugin-icons": "^0.19.3",
     "zod": "^3.23.8"
+  },
+  "dependencies": {
+    "@stripe/stripe-js": "^4.10.0",
+    "stripe": "^17.3.1"
   }
 }
