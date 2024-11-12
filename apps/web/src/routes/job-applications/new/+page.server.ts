@@ -31,17 +31,19 @@ export const actions = {
             const aiData = await aiResponse.json();
 
             // Then create the job application with the AI response
-            await locals.pb.collection('jobApplications').create({
+            const record = await locals.pb.collection('jobApplications').create({
                 userId: locals.user.id,
                 type: 'manual',
                 ...formData,
-                rawResponse: aiData.cv // Store the AI-generated CV
+                rawResponse: aiData.cv
             });
+
+            return { success: true, record };
         } catch (err) {
             console.log('Error: ', err);
-            throw error(err.status, err.message);
+            return fail(500, {
+                error: 'Failed to create job application'
+            });
         }
-
-        throw redirect(303, '/job-applications');
     }
 };

@@ -16,7 +16,7 @@
 
 <div class="w-full h-28 flex items-center justify-between">
     <div class="flex flex-col w-full ml-4 h-full justify-center">
-        <p class="font-semibold text-lg">{application.jobTitle}</p>
+        <a href="/job-applications/{application.id}" class="font-semibold text-lg hover:underline">{application.jobTitle}</a>
         <p>{application.company}</p>
         <p>Created: {formatDate(application.created)}</p>
     </div>

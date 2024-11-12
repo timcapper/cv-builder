@@ -1,9 +1,14 @@
 <script>
     import { Input } from "$lib/components";
+    import { onMount } from 'svelte';
     
     export let form;
 
-    let activeTab = 'upload';
+    onMount(() => {
+        if (form?.success) {
+            window.location.href = `/job-applications/${form.record.id}`;
+        }
+    });
 </script>
 
 <div class="flex flex-col items-center h-full w-full">
