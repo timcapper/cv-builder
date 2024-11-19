@@ -13,7 +13,10 @@
                     <h2 class="card-title">Buy individual credits</h2>
                     <p>Perfect if you are only applying to a few jobs.</p>
                     <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Buy now</button>
+                        <form action="/api/stripe" method="POST">
+                            <input type="hidden" name="priceId" value="price_1QMZkN09LKHGHspG4qYCVlWn" />
+                            <button type="submit" id="buy-credits-button" class="btn btn-primary">Buy now</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -22,7 +25,10 @@
                     <h2 class="card-title">Buy 6 months unlimited access</h2>
                     <p>Perfect if you are on the hunt for a new job. Any individual credit will be waiting for you once your unlimitied access ends.</p>
                     <div class="card-actions justify-end">
-                        <button class="btn btn-secondary">Buy now</button>
+                        <form action="/api/stripe" method="POST">
+                            <input type="hidden" name="priceId" value="price_1QMyGT09LKHGHspGUPs3shgg" />
+                            <button type="submit" id="buy-months-button" class="btn btn-primary">Buy now</button>
+                        </form>
                     </div>
                 </div>
             </div>
